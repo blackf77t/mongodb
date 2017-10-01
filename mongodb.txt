@@ -1,0 +1,36 @@
+# Enter the Mongo command shell
+mongo
+
+# make this database the active database
+use testdb
+
+# Show all collections within the database
+show collections
+
+# Add records to a collection
+db.testdb_collection.insert( { name: "Tom Monte", candidate: 26 } )
+
+# The number of records in a collection
+db.testdb_collection.count()
+
+# Collection statistics
+db.testdb_collection.stats()
+
+# find the contents of a collection called posts
+db.testdb_collection.find()
+
+# remove the contents of a collection called posts
+db.testdb_collection.remove
+db.testdb_collection.drop()
+
+# remove a record by object id
+db.testdb_collection.remove( {"_id": ObjectId("59aca5de49515c682b2cbe70")});
+
+# remove a field from a record
+db.testdb_collection.update( {"_id" : ObjectId("59aca44b49515c682b2cbe6f")}, { $unset: { "candidate" : 26 } } )
+
+# Add a field to a record
+db.testdb_collection.update( {"_id" : ObjectId("59aca44b49515c682b2cbe6f")}, { $set : {"candidate":26} } )
+
+# Create an index
+db.testdb_collection.reIndex()
